@@ -22,19 +22,21 @@ def toRCO(salto):
   return RCO
 
  
-# f = open('a.csv')
-# reader = csv.reader(f)
-# for row in reader:
-#   line = row[0].split(';')
-#   salto = line[2]
-
-#   if len(salto) == 14:
-#     rco = toRCO(salto)
-#     print(rco)
-#   else:
-#     print
+f = open('a.csv')
+reader = csv.reader(f)
+for row in reader:
+   # line = row[0].split(';')
+   salto = row[0]
+   if len(salto) == 14:
+     rco = toRCO(salto)
+     if len(rco) < 9:
+       zeros = 9 - len(rco)
+       rco = '0'*zeros + rco
+     print(rco)
+   else:
+     print
     
   
-# f.close()
+f.close()
 
-print(toRCO('645CC6D3000000'))
+# print(toRCO('645CC6D3000000'))
